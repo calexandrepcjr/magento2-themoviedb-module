@@ -1,7 +1,6 @@
 {
-    "name": "calexandrepcjr/magento2-themoviedb-module",
-    "description": "",
-
+    "name": "capcj/themoviedb",
+    "description": "Magento 2 plugin that retrieves movies from TheMovieDb api and allows the user to add it as product",
     "type": "magento2-module",
     "version": "0.0.1",
     "license": "MIT",
