@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="Capcj_TheMovieDb::movies" title="TheMovieDb Movies" module="Capcj_TheMovieDb" dependsOnModule="Capcj_TheMovieDb" sortOrder="4" resource="Capcj_TheMovieDb::movies" action="capcj_themoviedb/movies"/>
+      <add id="Capcj_TheMovieDb::movies_index" title="TheMovieDb" module="Capcj_TheMovieDb" dependsOnModule="Capcj_TheMovieDb" sortOrder="50" resource="Capcj_TheMovieDb::movies"/>
+      <add id="Capcj_TheMovieDb::movies" title="Add Movies as Products" translate="title" module="Capcj_TheMovieDb" sortOrder="10" action="capcj_themoviedb/movies" resource="Capcj_TheMovieDb::movies" dependsOnModule="Capcj_TheMovieDb" parent="Capcj_TheMovieDb::movies_index"/>
     </menu>
 </config>

@@ -4,6 +4,7 @@ namespace Capcj\TheMovieDb\Controller\Adminhtml\Movies;
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
+use Magento\Framework\View\Result\Page;
 
 class Index extends Action
 {
@@ -15,9 +16,8 @@ class Index extends Action
         $this->_pageFactory = $pageFactory;
 	}
 
-	public function execute(): void
+	public function execute(): Page
 	{
-		echo "Hello World";
-		exit;
+        return $this->_pageFactory->create();
 	}
 }
