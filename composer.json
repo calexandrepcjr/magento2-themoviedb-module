@@ -1,0 +1,26 @@
+{
+    "name": "calexandrepcjr/magento2-themoviedb-module",
+    "description": "",
+
+    "type": "magento2-module",
+    "version": "0.0.1",
+    "license": "MIT",
+    "authors": [
+        {
+          "name": "Carlos Alexandre",
+        }
+    ],
+    "require": {
+	"php": ">=7.1.0",
+	"magento/framework": ">=2.3"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Capcj\\TheMovieDb\\": ""
+        }
+    }
+
+}
