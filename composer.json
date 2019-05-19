@@ -20,6 +20,10 @@
         "psr-4": {
             "Capcj\\TheMovieDb\\": ""
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~5.7.0",
+        "phpunit/php-code-coverage": "~4.0",
+        "magento/community-edition": "^2.3"
     }
-
 }
