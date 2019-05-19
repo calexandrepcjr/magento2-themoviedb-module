@@ -28,12 +28,17 @@ class URI implements Builder
 
     public function __construct(string $basePath)
     {
-        $this->basePath = $basePath;
+        $this->basePath = $this->sanitizeSlashes($basePath);
     }
 
     protected function sanitizeSlashes(string $value): string
     {
-        return trim($string, '/');
+        return trim($value, '/');
+    }
+
+    protected function addSlashes(string $content): string
+    {
+        return $content === '' ? '' : "{$content}/";
     }
 
     public function basePath(string $basePath): Builder
@@ -46,7 +51,7 @@ class URI implements Builder
 
     public function route(string $value): Builder
     {
-        $this->route[] = $this->sanitizeSlashes($basePath);
+        $this->routes[] = $this->sanitizeSlashes($value);
         $this->uri = null;
 
         return $this;
@@ -54,7 +59,7 @@ class URI implements Builder
 
     public function query(string $key, $value): Builder
     {
-        $query[$key] = $value;
+        $this->queries[$key] = $value;
         $this->uri = null;
 
         return $this;
@@ -63,8 +68,8 @@ class URI implements Builder
     public function build(): string
     {
         $this->uri = $this->uri ??
-            $this->basePath .
-            implode('/', $this->routes) .
+            $this->addSlashes($this->basePath) .
+            $this->addSlashes(implode('/', $this->routes)) .
             http_build_query($this->queries);
 
         return $this->uri;
