@@ -4,6 +4,7 @@
   <title>
     Movies
   </title>
+  <css src="Capcj_TheMovieDb::css/style.css" />
 </head>
 <body>
   <referenceContainer name="content">
