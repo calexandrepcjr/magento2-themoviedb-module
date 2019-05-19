@@ -11,7 +11,7 @@ use Capcj\TheMovieDb\Lib\{
 
 final class IniEnvTest extends TestCase
 {
-    public function testEnvHasProperInterface(): void
+    public function testHasProperInterface(): void
     {
         $this->assertInstanceOf(Environment::class, new IniEnv());
     }
