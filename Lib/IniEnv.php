@@ -4,7 +4,7 @@ namespace Capcj\TheMovieDb\Lib;
 
 use Capcj\TheMovieDb\Lib\Contracts\Environment;
 
-class Env implements Environment
+class IniEnv implements Environment
 {
     /**
      * @var array
