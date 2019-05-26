@@ -74,6 +74,11 @@ class URI implements Builder
         return $this;
     }
 
+    public function hasQuery(string $key): bool
+    {
+        return isset($this->queries[$key]);
+    }
+
     public function build(): string
     {
         $this->uri = $this->uri ??

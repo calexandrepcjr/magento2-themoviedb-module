@@ -2,6 +2,8 @@
 
 namespace Capcj\TheMovieDb\Tests\Unit\Lib\TheMovieDb;
 
+use BadFunctionCallException;
+
 use PHPUnit\Framework\TestCase;
 
 use Capcj\TheMovieDb\Lib\{
@@ -19,7 +21,8 @@ final class SearchTest extends TestCase
     public function testSearchMoviesUrl(): void
     {
         $this->assertSame(
-            'https://api.themoviedb.org/3/search/movie?api_key=123&query=Accountant',
+            'https://api.themoviedb.org/3/search/movie' .
+            '?api_key=123&query=Accountant',
             (new Search('123'))->movie('Accountant')->url()
         );
     }
@@ -58,5 +61,15 @@ final class SearchTest extends TestCase
             ->movie('Accountant')
             ->url()
         );
+    }
+
+    public function testSearchMoviesWithoutMovie(): void
+    {
+        $this->expectException(BadFunctionCallException::class);
+
+        (new Search('123'))
+            ->adult(true)
+            ->page(12)
+            ->build();
     }
 }

@@ -52,4 +52,14 @@ final class URITest extends TestCase
             $url
         );
     }
+
+    public function testHasQuery(): void
+    {
+        $url = (new URI('www.themoviedb.com'))
+             ->route('movies')
+             ->query('name', 'John')
+             ->query('age', 18);
+
+        $this->asserTrue($url->hasQuery('age'));
+    }
 }

@@ -15,5 +15,6 @@ interface Builder extends BaseBuilder
      * @returns self
      **/
     public function query(string $key, $value): self;
+    public function hasQuery(string $key): bool;
     public function build(): string;
 }

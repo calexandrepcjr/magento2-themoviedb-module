@@ -2,6 +2,8 @@
 
 namespace Capcj\TheMovieDb\Lib\TheMovieDbAPI;
 
+use BadFunctionCallException;
+
 use Capcj\TheMovieDb\Lib\Contracts\Builders\{
     TheMovieDb\Search\Builder,
     URI\Builder as URIBuilder
@@ -22,6 +24,11 @@ class Search implements Builder
      * @var URIBuilder
      **/
     protected $uri;
+
+    /**
+     * @var object[]
+     **/
+    protected $result;
 
     public function __construct(string $apiKey = '')
     {
@@ -75,9 +82,25 @@ class Search implements Builder
         return $this->uri->build();
     }
 
-    // To be implemented
+    protected function checkRequiredFields(): void
+    {
+        if ($this->uri->hasQuery('query')) {
+            return;
+        }
+
+        throw new BadFunctionCallException('Movie function is required');
+    }
+
     public function build(): array
     {
-        return [];
+        $this->checkRequiredFields();
+
+        if ($this->result === null) {
+            $this->result = json_decode(
+                file_get_contents($this->url())
+            );
+        }
+
+        return $this->result;
     }
 }
