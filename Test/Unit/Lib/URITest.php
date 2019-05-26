@@ -38,4 +38,18 @@ final class URITest extends TestCase
             $url
         );
     }
+
+    public function testQueries(): void
+    {
+        $url = (new URI('www.themoviedb.com'))
+             ->route('movies')
+             ->query('name', 'John')
+             ->query('age', 18)
+             ->build();
+
+        $this->assertSame(
+            'www.themoviedb.com/movies?name=John&age=18',
+            $url
+        );
+    }
 }
