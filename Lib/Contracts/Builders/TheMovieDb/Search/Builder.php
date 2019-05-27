@@ -2,6 +2,8 @@
 
 namespace Capcj\TheMovieDb\Lib\Contracts\Builders\TheMovieDb\Search;
 
+use stdClass;
+
 use Capcj\TheMovieDb\Lib\Contracts\Builders\{
     Builder as BaseBuilder,
     URI\Builder as URI
@@ -21,5 +23,5 @@ interface Builder extends BaseBuilder
     public function page(int $number = 1): self;
     public function adult(bool $value = false): self;
     public function url(): string;
-    public function build(): array;
+    public function build(): stdClass;
 }

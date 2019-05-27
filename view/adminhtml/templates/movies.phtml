@@ -1,8 +1,11 @@
 <h2>Search movies in the TheMovieDb database and add them as Product</h2>
 <form method="POST">
-    <input name="movie_name" id="movie-name" value="" placeholder="Movie Name">
-    <input name="form_key" type="hidden" value="<?= $this->getFormKey()?>" />
+    <input name="movie_name" id="movie-name" value="<?= $block->getMovieName() ?? ''; ?>" placeholder="Movie Name">
+    <input name="form_key" type="hidden" value="<?= $block->getFormKey()?>" />
     <button name="search_btn" id="search-btn" type="submit">Search</button>
 </form>
-<div id="movies-list">
-</div>
+<section id="movies-list">
+<?php foreach ($block->listMovies() as $movie): ?>
+     <?= $block->movieHtml($movie); ?>
+<?php endforeach; ?>
+</section>

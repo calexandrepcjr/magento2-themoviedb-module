@@ -3,6 +3,7 @@
 namespace Capcj\TheMovieDb\Lib\TheMovieDbAPI;
 
 use BadFunctionCallException;
+use stdClass;
 
 use Capcj\TheMovieDb\Lib\Contracts\Builders\{
     TheMovieDb\Search\Builder,
@@ -91,7 +92,7 @@ class Search implements Builder
         throw new BadFunctionCallException('Movie function is required');
     }
 
-    public function build(): array
+    public function build(): stdClass
     {
         $this->checkRequiredFields();
 

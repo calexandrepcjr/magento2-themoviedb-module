@@ -2,3 +2,42 @@
     width: 30rem;
     padding: .5rem 1rem;
 }
+
+#movies-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#movies-list article {
+    width: 30rem;
+    height: 50rem;
+    text-align: justify;
+    border: 3px solid orange;
+    padding: 1em;
+    margin: 1em;
+}
+
+#movies-list article:hover
+{
+    background-color: #ffa5001a;
+}
+
+.ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: default;
+}
+
+#movies-list article img {
+    width: 200px;
+    margin: auto;
+    display: block;
+}
+
+#movies-list article button
+{
+    margin: auto;
+    text-align: center;
+    display: block;
+}
